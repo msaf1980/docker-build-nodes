@@ -1,0 +1,4 @@
+docker build --network=host -t centos7-gcc6:latest docker-centos7-gcc6-build-node
+docker build --network=host -t centos7-gcc7:latest docker-centos7-gcc7-build-node
+docker build --network=host -t centos7-golang-1.10:latest docker-centos7-golang-1.10-build-node
+
