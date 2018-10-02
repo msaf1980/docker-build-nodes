@@ -1,9 +1,6 @@
-**This build node image has been deprecated — use
-https://github.com/ess-dmsc/docker-centos7-gcc6-build-node instead.**
+# docker-centos7-golang-1.10-build-node
 
-# docker-centos7-gcc6-build-node
-
-Dockerfile for a CentOS 7 build node with GCC 6
+Dockerfile for a CentOS 7 build node with Go 1.10
 
 
 ## Building
