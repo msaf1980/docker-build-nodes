@@ -8,6 +8,7 @@ RUN yum install -y which wget zip unzip bzip2 doxygen findutils git graphviz
 RUN yum install -y make autoconf automake cmake cmake3 rpm-build
 RUN yum install -y gcc gcc-c++ gdb
 RUN yum install -y rh-python35 vim-common libtool perl
+RUN yum install -y ruby-devel
 RUN yum -y autoremove && yum clean all
 
 RUN scl enable rh-python35 -- pip install --force-reinstall pip==9.0.3 && \
@@ -21,6 +22,9 @@ RUN wget https://dl.google.com/go/go${GO_VER}.linux-amd64.tar.gz && \
     
 RUN wget https://github.com/golang/dep/releases/download/v${GODEP_VER}/dep-linux-amd64 -O /usr/local/bin/dep && \
     chmod +x /usr/local/bin/dep
+
+RUN rpm -i https://github.com/goreleaser/nfpm/releases/download/v0.9.5/nfpm_amd64.rpm
+RUN gem install fpm
 
 RUN mkdir -p ~/rpmbuild/BUILD \
          ~/rpmbuild/RPMS \
