@@ -5,7 +5,7 @@ ENV RUST_VERSION 1.30.1
 RUN yum -y install centos-release-scl epel-release
 RUN yum install -y which wget zip unzip bzip2 findutils git
 RUN yum install -y make autoconf automake cmake cmake3 rpm-build
-RUN yum install -y gcc
+RUN yum install -y gcc gcc-c++
 RUN yum install -y ruby-devel
 RUN yum -y autoremove && yum clean all
 
