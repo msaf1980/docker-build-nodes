@@ -1,13 +1,13 @@
-docker build --network=host -t centos7-gcc6:latest docker-centos7-gcc4.8
-docker build --network=host -t centos7-gcc6:latest docker-centos7-gcc6
-docker build --network=host -t centos7-gcc7:latest docker-centos7-gcc7
-docker build --network=host -t centos7-golang-1.10:latest docker-centos7-golang-1.10
-docker build --network=host -t centos7-rust-1.30:latest docker-centos7-rust-1.30
+docker build --network=host -t centos7-gcc:4.8 docker-centos7-gcc4.8
+docker build --network=host -t centos7-gcc:6 docker-centos7-gcc6
+docker build --network=host -t centos7-gcc:7 docker-centos7-gcc7
+docker build --network=host -t centos7-golang:1.10 docker-centos7-golang-1.10
+docker build --network=host -t centos7-rust:1.30 docker-centos7-rust-1.30
 
-# docker build --network=host -t centos7-gcc6:latest docker-centos7-gcc4.8-jenkins
-# docker build --network=host -t centos7-gcc6:latest docker-centos7-gcc6-jenkins
-# docker build --network=host -t centos7-gcc7:latest docker-centos7-gcc7-jenkins
-# docker build --network=host -t centos7-golang-1.10:latest docker-centos7-golang-1.10-jenkins
+# docker build --network=host -t centos7-gcc-jenkins:4.8 docker-centos7-gcc4.8-jenkins
+# docker build --network=host -t centos7-gcc-jenkins:6 docker-centos7-gcc6-jenkins
+# docker build --network=host -t centos7-gcc-jenkins:7 docker-centos7-gcc7-jenkins
+# docker build --network=host -t centos7-golang-jenkins:1.10 docker-centos7-golang-1.10-jenkins
 
 Run like
-# docker run --network=host -ti -v /tmp/build:/build centos7-golang-1.10
+# docker run --network=host -ti -v /tmp/build:/build centos7-golang:1.10
