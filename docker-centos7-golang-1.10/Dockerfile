@@ -5,7 +5,7 @@ ENV GODEP_VER 0.5.0
 
 RUN yum -y install centos-release-scl epel-release
 RUN yum install -y which wget zip unzip bzip2 doxygen findutils git graphviz
-RUN yum install -y make autoconf automake cmake cmake3 rpm-build
+RUN yum install -y make autoconf automake cmake cmake3 rpm-build rpmdevtools
 RUN yum install -y gcc gcc-c++ gdb
 RUN yum install -y rh-python35 vim-common libtool perl
 RUN yum install -y ruby-devel

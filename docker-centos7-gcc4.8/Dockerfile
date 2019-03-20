@@ -2,7 +2,7 @@ FROM centos:7
 
 RUN yum -y install centos-release-scl epel-release
 RUN yum install -y which wget zip unzip bzip2 doxygen findutils git graphviz
-RUN yum install -y make autoconf automake cmake cmake3 rpm-build
+RUN yum install -y make autoconf automake cmake cmake3 rpm-build rpmdevtools
 RUN yum install -y cloc cppcheck 
 RUN yum install -y clang-analyzer
 RUN yum install -y gcc gcc-c++
