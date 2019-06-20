@@ -34,6 +34,9 @@ RUN mkdir -p ~/rpmbuild/BUILD \
          ~/rpmbuild/RPMS/x86_64 \
          ~/rpmbuild/SOURCES \
          ~/rpmbuild/SPECS \
-         ~/rpmbuild/SRPMS
+         ~/rpmbuild/SRPMS \
+         ~/go/src/github.com
+
+ENV PATH="${HOME}/go/bin:${PATH}"
 
 CMD ["/bin/bash"]
