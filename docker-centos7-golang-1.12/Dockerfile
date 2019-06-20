@@ -1,6 +1,6 @@
 FROM centos:7
 
-ENV GO_VER 1.10.4
+ENV GO_VER 1.12.6
 ENV GODEP_VER 0.5.0
 
 RUN yum -y install centos-release-scl epel-release
