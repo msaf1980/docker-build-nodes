@@ -36,7 +36,7 @@ RUN scl enable rh-python${py_ver} -- conan install cmake_installer/${conan_cmake
 RUN git clone https://github.com/ess-dmsc/build-utils.git && \
     cd build-utils && \
     git checkout 3643fdc0ccbcdf83d9366fa619a44a60e7df9414 && \
-    scl enable devtoolset-6 -- make install
+    scl enable devtoolset-${devtoolset_ver} -- make install
 
 RUN mkdir -p ~/rpmbuild/BUILD \
          ~/rpmbuild/RPMS \
