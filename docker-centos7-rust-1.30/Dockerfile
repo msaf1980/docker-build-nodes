@@ -27,4 +27,8 @@ RUN mkdir -p ~/rpmbuild/BUILD \
          ~/rpmbuild/SPECS \
          ~/rpmbuild/SRPMS
 
-CMD ["bash", "-c", "/usr/bin/scl enable rh-python${py_ver} /bin/bash"]
+RUN echo ". /opt/rh/rh-python${py_ver}/enable" >> ${HOME}/.profile
+
+ENV PATH="$HOME/.cargo/bin:${PATH}"
+
+CMD ["bash"]

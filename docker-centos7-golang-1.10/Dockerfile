@@ -43,6 +43,8 @@ RUN mkdir -p ~/rpmbuild/BUILD \
          ~/rpmbuild/SRPMS \
          ~/go/src/github.com
 
+RUN echo ". /opt/rh/rh-python${py_ver}/enable" >> ${HOME}/.profile
+
 ENV PATH="${HOME}/go/bin:${PATH}"
 
-CMD ["bash", "-c", "/usr/bin/scl enable rh-python${py_ver} /bin/bash"]
+CMD ["bash"]

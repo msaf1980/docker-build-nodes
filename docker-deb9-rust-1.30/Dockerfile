@@ -17,4 +17,7 @@ RUN ./rust-${RUST_VERSION}-x86_64-unknown-linux-gnu/install.sh && rm -rf rust-${
 RUN apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-CMD ["/bin/bash"]
+ENV PATH="$HOME/.cargo/bin:${PATH}"
+
+CMD ["bash"]
+

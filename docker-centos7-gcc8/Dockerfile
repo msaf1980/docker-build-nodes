@@ -47,4 +47,7 @@ RUN mkdir -p ~/rpmbuild/BUILD \
          ~/rpmbuild/SPECS \
          ~/rpmbuild/SRPMS
 
-CMD ["bash", "-c", "/usr/bin/scl enable rh-python${py_ver} devtoolset-${devtoolset_ver} /bin/bash"]
+RUN echo ". /opt/rh/rh-python${py_ver}/enable" >> /etc/profile.d/devenv.sh
+RUN echo ". /opt/rh/devtoolset-${devtoolset_ver}/enable" >> /etc/profile.d/devenv.sh
+
+CMD ["bash"]
