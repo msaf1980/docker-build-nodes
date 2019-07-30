@@ -1,15 +1,20 @@
-docker build --network=host -t centos7-gcc:4.8 docker-centos7-gcc4.8
-docker build --network=host -t centos7-gcc:6 docker-centos7-gcc6
-docker build --network=host -t centos7-gcc:7 docker-centos7-gcc7
-docker build --network=host -t centos7-golang:1.10 docker-centos7-golang-1.10
-docker build --network=host -t centos7-golang:1.11 docker-centos7-golang-1.11
-docker build --network=host -t centos7-golang:1.12 docker-centos7-golang-1.12
-docker build --network=host -t centos7-rust:1.30 docker-centos7-rust-1.30
+docker build --network=host -t msaf1980/centos7-gcc4.8 docker-centos7-gcc4.8
+docker build --network=host -t msaf1980/centos7-gcc6 docker-centos7-gcc6
+docker build --network=host -t msaf1980/centos7-gcc7 docker-centos7-gcc7
+docker build --network=host -t msaf1980/centos7-gcc8 docker-centos7-gcc8
+docker build --network=host -t msaf1980/centos7-golang1.10 docker-centos7-golang-1.10
+docker build --network=host -t msaf1980/centos7-golang1.11 docker-centos7-golang-1.11
+docker build --network=host -t msaf1980/centos7-golang1.12 docker-centos7-golang-1.12
+docker build --network=host -t msaf1980/centos7-rust1.30 docker-centos7-rust-1.30
 
-# docker build --network=host -t centos7-gcc-jenkins:4.8 docker-centos7-gcc4.8-jenkins
-# docker build --network=host -t centos7-gcc-jenkins:6 docker-centos7-gcc6-jenkins
-# docker build --network=host -t centos7-gcc-jenkins:7 docker-centos7-gcc7-jenkins
-# docker build --network=host -t centos7-golang-jenkins:1.10 docker-centos7-golang-1.10-jenkins
+# docker build --network=host -t msaf1980/centos7-gcc-jenkins4.8 docker-centos7-gcc4.8-jenkins
+# docker build --network=host -t msaf1980/centos7-gcc-jenkins6 docker-centos7-gcc6-jenkins
+# docker build --network=host -t msaf1980/centos7-gcc-jenkins7 docker-centos7-gcc7-jenkins
+# docker build --network=host -t msaf1980/centos7-golang-jenkins1.10 docker-centos7-golang-1.10-jenkins
+
+# Push to dockerhub
+docker login
+docker push msaf1980/centos7-gcc4.8
 
 Run like
-# docker run --network=host -ti -v /tmp/build:/build centos7-golang:1.10
+# docker run --network=host -ti -v /tmp/build:/build msaf1980/centos7-golang:1.10

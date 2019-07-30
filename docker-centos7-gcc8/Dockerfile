@@ -1,6 +1,6 @@
 FROM centos:7
 
-ENV devtoolset_ver 7
+ENV devtoolset_ver 8
 ENV py_ver 36
 ENV conan_ver 1.16.1
 ENV conan_cmake_ver 3.15.1
