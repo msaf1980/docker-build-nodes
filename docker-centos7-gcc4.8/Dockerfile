@@ -13,7 +13,7 @@ RUN yum install -y make autoconf automake cmake cmake3 rpm-build rpmdevtools
 RUN yum install -y cloc cppcheck 
 RUN yum install -y clang-analyzer
 RUN yum install -y gcc gcc-c++
-RUN yum install -y libpcap-devel lcov mpich-3.2-devel rh-python${py_ver} vim-common libtool perl
+RUN yum install -y libpcap-devel lcov mpich-3.2-devel python-pip python-setuptools rh-python${py_ver} vim-common libtool perl
 RUN yum -y autoremove && yum clean all
 
 RUN scl enable rh-python${py_ver} -- pip install --upgrade pip && \
