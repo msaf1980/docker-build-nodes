@@ -9,7 +9,7 @@ ENV gcovr_ver 3.4
 RUN apt-get update
 RUN apt-get install -y --allow-unauthenticated --no-install-recommends wget zip unzip bzip2 findutils file ca-certificates curl libcurl3 pkg-config git
 RUN apt-get install -y --allow-unauthenticated make autoconf automake cmake
-RUN apt-get install -y --allow-unauthenticated build-essential gcc g++ gdb
+RUN apt-get install -y --allow-unauthenticated build-essential gcc g++ gdb-python2
 RUN apt-get install -y --allow-unauthenticated python-pip python-setuptools
 RUN apt-get install -y --allow-unauthenticated python3 python3-pip python3-setuptools
 
