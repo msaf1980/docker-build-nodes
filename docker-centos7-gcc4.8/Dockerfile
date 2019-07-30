@@ -8,12 +8,13 @@ ENV flake8_ver 3.5.0
 ENV gcovr_ver 3.4
 
 RUN yum -y install centos-release-scl epel-release
-RUN yum install -y which wget zip unzip bzip2 doxygen findutils git graphviz
-RUN yum install -y make autoconf automake cmake cmake3 rpm-build rpmdevtools
-RUN yum install -y cloc cppcheck 
-RUN yum install -y clang-analyzer
+RUN yum install -y which wget zip unzip bzip2 doxygen findutils git graphviz \
+                   make autoconf automake cmake cmake3 rpm-build rpmdevtools
 RUN yum install -y gcc gcc-c++
-RUN yum install -y libpcap-devel lcov mpich-3.2-devel python-pip python-setuptools rh-python${py_ver} vim-common libtool perl
+RUN yum install -y libpcap-devel lcov mpich-3.2-devel python-pip python-setuptools vim-common libtool perl
+RUN yum install -y cloc cppcheck
+RUN yum install -y clang-analyzer
+RUN yum install -y rh-python${py_ver}
 RUN yum -y autoremove && yum clean all
 
 RUN scl enable rh-python${py_ver} -- pip install --upgrade pip && \
@@ -45,4 +46,4 @@ RUN mkdir -p ~/rpmbuild/BUILD \
          ~/rpmbuild/SPECS \
          ~/rpmbuild/SRPMS
 
-CMD ["/usr/bin/scl", "enable", "rh-python${py_ver}", "/bin/bash"]
+CMD ["bash", "-c", "/usr/bin/scl enable rh-python${py_ver} /bin/bash"]
