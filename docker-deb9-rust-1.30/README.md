@@ -1,7 +1,6 @@
-# docker-centos7-rust-1.30.1
+# docker-debain9-gcc
 
-Dockerfile for a CentOS 7 build node with Rust 1.30.1
-Based https://github.com/ess-dmsc/docker-centos7-gcc6-build-node
+Dockerfile for a Debain 9 build node with Rust 1.30.1
 
 ## Building
 
