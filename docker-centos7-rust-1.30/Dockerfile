@@ -12,6 +12,9 @@ RUN yum install -y ruby-devel
 
 RUN yum -y autoremove && yum clean all
 
+RUN pip install --upgrade pip && \
+    pip install --upgrade setuptools astroid
+
 RUN rpm -i https://github.com/goreleaser/nfpm/releases/download/v0.9.5/nfpm_amd64.rpm
 RUN gem install fpm
 

@@ -31,7 +31,7 @@ RUN wget https://github.com/golang/dep/releases/download/v${godep_ver}/dep-linux
     chmod +x /usr/local/bin/dep
 
 RUN rpm -i https://github.com/goreleaser/nfpm/releases/download/v0.9.5/nfpm_amd64.rpm
-RUN gem install rake fpm
+RUN gem install rake childprocess:0.9.0 childprocess:0.9.0 fpm
 
 RUN mkdir -p ~/rpmbuild/BUILD \
          ~/rpmbuild/RPMS \

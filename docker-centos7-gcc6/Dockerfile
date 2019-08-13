@@ -19,6 +19,7 @@ RUN yum install -y devtoolset-${devtoolset_ver}
 RUN yum -y autoremove && yum clean all
 
 RUN scl enable rh-python${py_ver} -- pip install --upgrade pip && \
+    scl enable rh-python${py_ver} -- pip install --upgrade setuptools astroid && \
     scl enable rh-python${py_ver} -- pip install conan==${conan_ver} coverage==${coverage_ver} flake8==${flake8_ver} gcovr==${gcovr_ver} && \
     rm -rf /root/.cache/pip/
 

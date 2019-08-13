@@ -32,7 +32,7 @@ RUN wget https://github.com/golang/dep/releases/download/v${godep_ver}/dep-linux
 
 RUN rpm -i https://github.com/goreleaser/nfpm/releases/download/v0.9.5/nfpm_amd64.rpm
 # newer fpm is broken https://github.com/jordansissel/fpm/issues/1612
-RUN    gem install rake fpm:1.10.2
+RUN    gem install rake childprocess:0.9.0 fpm:1.10.2
 
 RUN mkdir -p ~/rpmbuild/BUILD \
          ~/rpmbuild/RPMS \
