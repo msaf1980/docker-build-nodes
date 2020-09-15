@@ -1,6 +1,6 @@
 FROM centos:7
 
-ENV go_ver 1.12.7
+ENV go_ver 1.14.9
 ENV godep_ver 0.5.0
 ENV py_ver 36
 ENV conan_ver 1.16.1
