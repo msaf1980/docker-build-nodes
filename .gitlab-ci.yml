@@ -1,0 +1,12 @@
+build_and_push:
+  image: docker:stable
+  before_script:
+    - docker login $REGISTRY_URL --username $REGISTRY_USER --password $REGISTRY_PASS
+    - export IMAGE_TAG="${CI_COMMIT_TAG}"
+    - export CI_USER_NAME="${GITLAB_USER_NAME}"
+  script:
+    - ./docker-build.sh
+  after_script:
+    - docker logout $REGISTRY_URL
+  only: [tags]
+  tags: [docker-build]
