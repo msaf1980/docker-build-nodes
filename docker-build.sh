@@ -24,7 +24,7 @@ DIR="docker-${IMAGE_TAG}"
 
 IMAGE="`echo ${IMAGE_TAG} | awk ' match($0, /^(.+)-([0-9\.]+)$/, p) { printf "%s:%s", p[1], p[2] } '`" 
 [ "${IMAGE}" == "" -o "${IMAGE}" == ":" ] && {
-  echo "IMAGE_TAG ${IMAGE_TAG} return ${IMAGE}, must be in format NAME-VERSION" >&2
+  echo "parse IMAGE_TAG ${IMAGE_TAG} return ${IMAGE}, IMAGE_TAG must be in format NAME-VERSION" >&2
   exit 1
 }
 
