@@ -34,7 +34,7 @@ RUN rpm -i https://github.com/goreleaser/nfpm/releases/download/v0.9.5/nfpm_amd6
 # newer fpm is broken https://github.com/jordansissel/fpm/issues/1612
 #RUN    gem install childprocess:0.9.0 fpm:1.10.2
 # Qiuck and ugly fpm replacement
-RUN rpm -i https://github.com/msaf1980/nfpmc/releases/download/v0.1.5/nfpmc-0.1.5-1.x86_64.rpm
+RUN rpm -i https://github.com/msaf1980/nfpmc/releases/download/v0.1.6/nfpmc-0.1.6-1.x86_64.rpm
 RUN ln -s /usr/bin/nfpmc /usr/bin/fpm
 
 RUN mkdir -p ~/rpmbuild/BUILD \
