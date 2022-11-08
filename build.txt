@@ -11,14 +11,13 @@ docker build --network=host -t msaf1980/centos7-rust:1.30 docker-centos7-rust-1.
 docker build --network=host -t msaf1980/deb9-gcc:6 docker-deb9-gcc6
 docker build --network=host -t msaf1980/deb10-gcc:8 docker-deb10-gcc
 
-# docker build --network=host -t msaf1980/centos7-gcc-jenkins:4.8 docker-centos7-gcc4.8-jenkins
-# docker build --network=host -t msaf1980/centos7-gcc-jenkins:6 docker-centos7-gcc6-jenkins
-# docker build --network=host -t msaf1980/centos7-gcc-jenkins:7 docker-centos7-gcc7-jenkins
-# docker build --network=host -t msaf1980/centos7-golang-jenkins:1.10 docker-centos7-golang-1.10-jenkins
-
 # Push to dockerhub
 docker login
 docker push msaf1980/centos7-gcc4.8
 
 Run like
 # docker run --network=host -ti -v /tmp/build:/build msaf1980/centos7-golang:1.10
+
+Build with script
+
+REGISTRY_PROJECT="registry.test.int/graphite" IMAGE_TAG="centos7-golang-1.19.3"
