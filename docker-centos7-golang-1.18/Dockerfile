@@ -1,6 +1,6 @@
 FROM centos:7
 
-ENV go_ver 1.18.5
+ARG golang_version
 ENV godep_ver 0.5.0
 ENV py_ver 36
 ENV ruby_ver 27
@@ -23,8 +23,8 @@ RUN scl enable rh-python${py_ver} -- pip install --upgrade pip && \
     scl enable rh-python${py_ver} -- pip install conan==${conan_ver} coverage==${coverage_ver} flake8==${flake8_ver} gcovr==${gcovr_ver} && \
     rm -rf /root/.cache/pip/*
 
-RUN wget -q https://dl.google.com/go/go${go_ver}.linux-amd64.tar.gz && \
-    tar -xzf go${go_ver}.linux-amd64.tar.gz -C /usr/local && \
+RUN wget -q https://dl.google.com/go/go${golang_version}.linux-amd64.tar.gz && \
+    tar -xzf go${golang_version}.linux-amd64.tar.gz -C /usr/local && \
     ln -s /usr/local/go/bin/go /usr/local/bin/go && \
     ln -s /usr/local/go/bin/godoc /usr/local/bin/godoc && \
     ln -s /usr/local/go/bin/godoc /usr/local/bin/gofmt

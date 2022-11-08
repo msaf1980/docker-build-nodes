@@ -16,28 +16,29 @@ FAIL=0
 [ -z "${CI_COMMIT_REF_NAME}" ] && CI_COMMIT_REF_NAME="$( git symbolic-ref HEAD 2> /dev/null | cut -b 12- )"
 [ -z "${CI_USER_NAME}" ] && CI_USER_NAME="$( git config user.email )"
 
-DIR="docker-${IMAGE_TAG}"
-[ -d "${DIR}" ] || {
-  echo "${DIR} not exist, check IMAGE_TAG" >&2
-  exit 1
-}
-
-echo ${IMAGE_TAG} | awk ' match($0, /^(.+)-([0-9\.]+)$/, p) { printf "%s:%s", p[1], p[2] } '
-
-IMAGE="`echo ${IMAGE_TAG} | awk ' match($0, /^(.+)-([0-9\.]+)$/, p) { printf "%s:%s", p[1], p[2] } '`" 
+IMAGE="`echo ${IMAGE_TAG} | awk ' match($0, /^(.+)\.[0-9\.]+$/, p) { printf "%s", p[1] } '`" 
 [ "${IMAGE}" == "" -o "${IMAGE}" == ":" ] && {
   echo "parse IMAGE_TAG ${IMAGE_TAG} return ${IMAGE}, IMAGE_TAG must be in format NAME-VERSION" >&2
   exit 1
 }
+LANG="`echo ${IMAGE_TAG} | awk -F'-' ' match($0, /^.*-([a-z]+)-([0-9\.]+)$/, p) { printf "%s_version=%s", p[1], p[2] } '`" 
+VERSION="`echo ${IMAGE_TAG} | awk -F'-' ' match($0, /^.*-([a-z]+)-([0-9\.]+)$/, p) { printf "%s", p[2] } '`" 
+
+DIR="docker-${IMAGE}"
+[ -d "${DIR}" ] || {
+  echo "${DIR} not exist, check IMAGE_TAG: ${IMAGE_TAG}" >&2
+  exit 1
+}
 
 [ -z "${REGISTRY_URL}" ] && {
-  PUSH_URL="${REGISTRY_PROJECT}/${IMAGE}"
+  PUSH_URL="${REGISTRY_PROJECT}:${VERSION}"
 } || {
-  PUSH_URL="${REGISTRY_URL}/${REGISTRY_PROJECT}/${IMAGE}"
+  PUSH_URL="${REGISTRY_URL}/${REGISTRY_PROJECT}:${VERSION}"
 }
-echo ${PUSH_URL} from ${IMAGE_TAG}
+echo ${PUSH_URL} from ${DIR}
 
 docker build \
+      --build-arg ${LANG} \
       --label "branch=${CI_COMMIT_REF_NAME}" \
       --label "commit=${CI_COMMIT_SHA}" \
       --label "builder=${CI_USER_NAME}" \
