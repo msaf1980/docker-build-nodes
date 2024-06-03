@@ -9,6 +9,7 @@ RUN yum install -y which wget zip unzip bzip2 doxygen findutils git graphviz \
                    make autoconf automake cmake cmake3 rpm-build rpmdevtools
 RUN yum install -y gcc gcc-c++
 RUN yum install -y libpcap-devel lcov mpich-3.2-devel python-pip python-setuptools vim-common libtool perl
+RUN yum install -y openssl-devel
 RUN yum install -y rh-python${py_ver}
 RUN yum install -y rh-ruby${ruby_ver} rh-ruby${ruby_ver}-ruby-devel rh-ruby${ruby_ver}-rubygem-rake
 
