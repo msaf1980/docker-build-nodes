@@ -3,7 +3,7 @@ FROM centos:7
 ENV golang_version 1.21.7
 ENV godep_ver 0.5.0
 ENV py_ver 36
-ENV ruby_ver 27
+ENV ruby_ver 30
 ENV conan_ver 1.16.1
 ENV coverage_ver 4.4.2
 ENV flake8_ver 3.5.0
@@ -16,6 +16,7 @@ RUN yum install -y which wget zip unzip bzip2 doxygen findutils git graphviz \
 RUN yum install -y gcc gcc-c++
 RUN yum install -y libpcap-devel lcov mpich-3.2-devel python-pip python-setuptools vim-common libtool perl
 RUN yum install -y rh-python${py_ver}
+RUN yum install -y rh-ruby${ruby_ver} rh-ruby${ruby_ver}-ruby-devel rh-ruby${ruby_ver}-rubygem-rake
 RUN yum install -y rh-ruby${ruby_ver} rh-ruby${ruby_ver}-ruby-devel rh-ruby${ruby_ver}-rubygem-rake
 RUN yum -y autoremove && yum clean all
 
@@ -30,10 +31,8 @@ RUN wget -q https://dl.google.com/go/go${golang_version}.linux-amd64.tar.gz && \
     ln -s /usr/local/go/bin/godoc /usr/local/bin/gofmt
 
 RUN rpm -i https://github.com/goreleaser/nfpm/releases/download/v0.9.5/nfpm_amd64.rpm
-# newer fpm is broken https://github.com/jordansissel/fpm/issues/1612
-#RUN    gem install childprocess:0.9.0 fpm:1.10.2
-# Qiuck and ugly fpm replacement
-RUN . /opt/rh/rh-ruby${ruby_ver}/enable && gem install rake childprocess:0.9.0 childprocess:0.9.0 fpm
+
+RUN . /opt/rh/rh-ruby${ruby_ver}/enable && gem install dotenv:2.8.1 rake childprocess:0.9.0 childprocess:0.9.0 fpm
 
 RUN mkdir -p ~/rpmbuild/BUILD \
          ~/rpmbuild/RPMS \
